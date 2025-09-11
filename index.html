@@ -227,43 +227,48 @@
     <!-- Spinner End -->
 
     <!-- Topbar Start -->
-    <div class="container-fluid bg-light p-0">
-      <div class="row gx-0 d-none d-lg-flex">
-        <div class="col-lg-7 px-5 text-start">
-          <div class="h-100 d-inline-flex align-items-center py-3 me-4">
-            <small class="fa fa-envelope text-primary me-2"> </small>
-             <small><a href="mailto:info@example.com" class="text-dark text-decoration-none">
-                        Gajanansadapatil@gmail.com
- </a></small> 
-          </div>
-          <div class="h-100 d-inline-flex align-items-center py-3">
-            <small class="far fa-clock text-primary me-2"></small>
-            <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
-          </div>
-        </div>
-        <div class="col-lg-5 px-5 text-end">
-          <div class="h-100 d-inline-flex align-items-center py-3 me-4">
-            <small class="fa fa-phone-alt text-primary me-2"></small>
-            <small>+91 8459202548 / 7030548123
-</small>
-          </div>
-          <div class="h-100 d-inline-flex align-items-center">
-            <a class="btn btn-sm-square bg-white text-primary me-1" href=""
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a class="btn btn-sm-square bg-white text-primary me-1" href=""
-              ><i class="fab fa-twitter"></i
-            ></a>
-            <a class="btn btn-sm-square bg-white text-primary me-1" href=""
-              ><i class="fab fa-linkedin-in"></i
-            ></a>
-            <a class="btn btn-sm-square bg-white text-primary me-0" href=""
-              ><i class="fab fa-instagram"></i
-            ></a>
-          </div>
-        </div>
+ <div class="container-fluid bg-light">
+  <div class="row gx-0 d-none d-lg-flex">
+    <!-- Left Side -->
+    <div class="col-lg-7 px-5 text-start">
+      <!-- Email -->
+      <div class="h-100 d-inline-flex align-items-center me-4">
+        <small class="fa fa-envelope text-primary me-2"></small>
+        <small>
+          <a href="mailto:info@example.com" class="text-dark text-decoration-none">
+            Gajanansadapatil@gmail.com
+          </a>
+        </small>
+      </div>
+      <!-- Import & Export -->
+      <div class="h-100 d-inline-flex align-items-center me-4">
+        <small class="fa fa-globe text-primary me-2"></small>
+        <small class="text-dark fw-semibold">Import & Export</small>
+      </div>
+      <!-- Timing -->
+      <div class="h-100 d-inline-flex align-items-center">
+        <small class="far fa-clock text-primary me-2"></small>
+        <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
       </div>
     </div>
+
+    <!-- Right Side -->
+    <div class="col-lg-5 px-5 text-end">
+      <!-- Phone -->
+      <div class="h-100 d-inline-flex align-items-center me-4">
+        <small class="fa fa-phone-alt text-primary me-2"></small>
+        <small>+91 8459202548 / 7030548123</small>
+      </div>
+      <!-- Social Icons -->
+      <div class="h-100 d-inline-flex align-items-center">
+        <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
+        <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-twitter"></i></a>
+        <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-linkedin-in"></i></a>
+        <a class="btn btn-sm-square bg-white text-primary me-0" href=""><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
     <!-- Topbar End -->
 
     <!-- Navbar Start -->
@@ -1716,115 +1721,6 @@
       </div>
     </div>
 <!-- Contact End -->
-
-
-<!-- This is for country modal -->
-<!-- Modal 1: Country -->
-<div class="modal fade" id="countryModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5>Select Country</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body" id="countryList">
-        <!-- Dynamically added -->
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal 2: State -->
-<div class="modal fade" id="stateModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5>Select State</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body" id="stateList">
-        <!-- Dynamically added -->
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal 3: Local Name -->
-<div class="modal fade" id="productNameModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5>Local Name</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body" id="productNameResult">
-        <!-- Dynamically added -->
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-// === Data Store (JSON Format) ===
-const data = {
-  "India": {
-    "Maharashtra": { "apple": "Safarchand" },
-    "Bihar": { "apple": "Seb" },
-    "Kerala": { "apple": "Apple" }
-  },
-  "USA": {
-    "California": { "apple": "Apple" },
-    "Texas": { "apple": "Apple" }
-  },
-  "France": {
-    "Île-de-France": { "apple": "Pomme" },
-    "Normandy": { "apple": "Pomme" }
-  }
-};
-
-let selectedProduct = "apple";
-let selectedCountry = "";
-let selectedState = "";
-
-// === Show Country Modal ===
-$('#openCountryBtn').click(function() {
-  $('#countryList').empty();
-  for (let country in data) {
-    $('#countryList').append(
-      `<button class="btn btn-outline-primary m-1 country-btn" data-country="${country}">${country}</button>`
-    );
-  }
-  new bootstrap.Modal(document.getElementById('countryModal')).show();
-});
-
-// === Handle Country Button Click ===
-$(document).on('click', '.country-btn', function() {
-  selectedCountry = $(this).data('country');
-  $('#stateList').empty();
-  const states = data[selectedCountry];
-
-  for (let state in states) {
-    $('#stateList').append(
-      `<button class="btn btn-outline-success m-1 state-btn" data-state="${state}">${state}</button>`
-    );
-  }
-
-  bootstrap.Modal.getInstance(document.getElementById('countryModal')).hide();
-  new bootstrap.Modal(document.getElementById('stateModal')).show();
-});
-
-// === Handle State Button Click ===
-$(document).on('click', '.state-btn', function() {
-  selectedState = $(this).data('state');
-  const localName = data[selectedCountry][selectedState][selectedProduct];
-
-  $('#productNameResult').php(`<p><strong>${selectedState}</strong> me <strong>${selectedProduct}</strong> ko bola jata hai: <span class="text-success">${localName}</span></p>`);
-
-  bootstrap.Modal.getInstance(document.getElementById('stateModal')).hide();
-  new bootstrap.Modal(document.getElementById('productNameModal')).show();
-});
-</script>
-<!-- end modal -->
 
 <!-- Enquiry Modal -->
 <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
